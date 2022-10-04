@@ -4,6 +4,7 @@ namespace Hsoderlind\Tradera\Api\Action;
 
 use Hsoderlind\Tradera\Api\Service\TraderaPublicService;
 use Hsoderlind\Tradera\Api\Provider\GetAttributeDefinitionsResult;
+use SoapFault;
 use stdClass;
 
 class GetAttributeDefinitions
@@ -18,6 +19,11 @@ class GetAttributeDefinitions
 
     public function dispatch(TraderaPublicService $client): GetAttributeDefinitionsResult
     {
-        return new GetAttributeDefinitionsResult($client->GetAttributeDefinitions($this));
+        try {
+            $result = $client->GetAttributeDefinitions($this);
+            return new GetAttributeDefinitionsResult($result);
+        } catch (SoapFault $fault) {
+            trigger_error("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})", E_USER_ERROR);
+        }
     }
 }
