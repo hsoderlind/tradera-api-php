@@ -13,7 +13,7 @@ class GetExpoItemTypesResult
 
     public function __construct($serviceResult)
     {
-        $this->IdDescriptionPair = $serviceResult->GetExpoItemTypes->IdDescriptionPair;
+        $this->IdDescriptionPair = $serviceResult->GetExpoItemTypesResult->IdDescriptionPair;
     }
 
     public function getIdDescriptionPair()
