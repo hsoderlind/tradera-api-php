@@ -24,4 +24,14 @@ trait ServiceTrait
             trigger_error("SOAP Fault: (faultcode: {$ex->faultcode}, faultstring: {$ex->faultstring}). Req {$req}", E_USER_ERROR);
         }
     }
+
+    public function debugRequest(): string
+    {
+        return $this->client->__getLastRequest();
+    }
+
+    public function debugResponse(): string
+    {
+        return $this->client->__getLastResponse();
+    }
 }
