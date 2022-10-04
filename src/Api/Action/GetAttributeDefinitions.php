@@ -22,7 +22,7 @@ class GetAttributeDefinitions
         try {
             $result = $client->GetAttributeDefinitions($this);
             // return new GetAttributeDefinitionsResult($result);
-            return $client->debugRequest();
+            return $client->debugResponse();
         } catch (SoapFault $fault) {
             trigger_error("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})", E_USER_ERROR);
         }
