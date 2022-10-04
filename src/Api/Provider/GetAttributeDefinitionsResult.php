@@ -13,7 +13,7 @@ class GetAttributeDefinitionsResult
 
     public function __construct($serviceResult)
     {
-        $this->AttributeDefinitions = $serviceResult->GetAttributeDefinitionsResult->AttributeDefinition;
+        $this->AttributeDefinitions = $serviceResult->GetAttributeDefinitionsResult->AttributeDefinition ?? [];
     }
 
     public function getAttributeDefinitions()

@@ -17,12 +17,11 @@ class GetAttributeDefinitions
         $this->categoryId = $categoryId;
     }
 
-    public function dispatch(TraderaPublicService $client): string //GetAttributeDefinitionsResult
+    public function dispatch(TraderaPublicService $client): GetAttributeDefinitionsResult
     {
         try {
             $result = $client->GetAttributeDefinitions($this);
-            // return new GetAttributeDefinitionsResult($result);
-            return $client->debugResponse();
+            return new GetAttributeDefinitionsResult($result);
         } catch (SoapFault $fault) {
             trigger_error("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})", E_USER_ERROR);
         }
