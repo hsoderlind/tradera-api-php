@@ -16,9 +16,10 @@ class TraderaRestrictedService
 	 * @param string $appKey
 	 * @param string $userId
 	 * @param string $token
+	 * @param callable|string $logger
 	 * @param integer|null $sandbox
 	 */
-	public function __construct(string $appId, string $appKey, string $userId, string $token, ?int $sandbox = null)
+	public function __construct(string $appId, string $appKey, string $userId, string $token, ?int $sandbox = null, $logger = null)
 	{
 		$url = 'https://api.tradera.com/v3/RestrictedService.asmx';
 		$params = [
@@ -29,7 +30,8 @@ class TraderaRestrictedService
 		];
 
 		if ($sandbox) {
-			$params['sandbox'] = $sandbox;
+			$params['sandbox'] = $this->debug = $sandbox;
+			$this->logger = $logger;
 		}
 
 		$this->client = new SoapClient(
