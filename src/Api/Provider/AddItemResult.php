@@ -5,11 +5,9 @@ namespace Hsoderlind\Tradera\Api\Provider;
 class AddItemResult extends BaseResultProvider
 {
     /**
-     * ID of the added item.
-     *
      * @var int
      */
-    protected $itemId;
+    protected $requestId;
 
     /**
      * 
@@ -19,7 +17,6 @@ class AddItemResult extends BaseResultProvider
     public function __construct($serviceResult)
     {
         $this->requestId = $serviceResult->AddItemResult->RequestId;
-        $this->itemId = $serviceResult->AddItemResult->ItemId;
     }
 
     /**
@@ -27,8 +24,8 @@ class AddItemResult extends BaseResultProvider
      *
      * @return integer
      */
-    public function getItemId(): int
+    public function getRequestId(): int
     {
-        return $this->itemId;
+        return $this->requestId;
     }
 }
