@@ -214,7 +214,7 @@ class AddItem
             $itemRequest->$prop = $value;
         }
 
-        $addItemParams->ItemRequest = $itemRequest;
+        $addItemParams->itemRequest = $itemRequest;
 
         return new AddItemResult($client->AddItem($addItemParams));
     }
