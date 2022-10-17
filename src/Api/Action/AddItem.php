@@ -24,7 +24,7 @@ class AddItem
      *
      * @var string
      */
-    public $OwnReference;
+    public $OwnReferences;
 
     /**
      * The category Id. See the action GetCategories for all available categories
