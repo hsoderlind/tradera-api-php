@@ -75,7 +75,7 @@ class AddItem
      *
      * @var string
      */
-    public $Description;
+    public $Description = 'Tom beskrivning';
 
     /**
      * The types of bidders allowed for the Item.
