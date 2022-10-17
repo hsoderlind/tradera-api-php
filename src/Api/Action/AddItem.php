@@ -61,14 +61,14 @@ class AddItem
      *
      * @var int
      */
-    public $ReservePrice;
+    public $ReservePrice = 0;
 
     /**
      * A price that the Item can be bought for immediately, if any, in kronor.
      *
      * @var int
      */
-    public $BuyItNowPrice;
+    public $BuyItNowPrice = 0;
 
     /**
      * A long (7000 chars) description of the item.
