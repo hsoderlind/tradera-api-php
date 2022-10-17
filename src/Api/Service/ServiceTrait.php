@@ -35,12 +35,12 @@ trait ServiceTrait
         }
     }
 
-    public function debugRequest(): string
+    public function debugRequest(): ?string
     {
         return $this->client->__getLastRequest();
     }
 
-    public function debugResponse(): string
+    public function debugResponse(): ?string
     {
         return $this->client->__getLastResponse();
     }
