@@ -58,8 +58,8 @@ trait ServiceTrait
         }
 
         if (file_exists($this->logger)) {
-            file_put_contents("{$this->logger}/tradera-request", $this->debugRequest());
-            file_put_contents("{$this->logger}/tradera-response", $this->debugResponse());
+            file_put_contents("{$this->logger}/tradera-request.xml", $this->debugRequest());
+            file_put_contents("{$this->logger}/tradera-response.xml", $this->debugResponse());
         }
     }
 }
