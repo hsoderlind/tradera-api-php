@@ -31,7 +31,8 @@ trait ServiceTrait
         } catch (SoapFault $ex) {
             $this->doDebug();
             $req = $this->client->__getLastRequest();
-            trigger_error("SOAP Fault: (faultcode: {$ex->faultcode}, faultstring: {$ex->faultstring}). Req {$req}", E_USER_ERROR);
+            $reqHeaders = $this->client->__getLastRequestHeaders();
+            trigger_error("SOAP Fault: (faultcode: {$ex->faultcode}, faultstring: {$ex->faultstring}). Req {$req}. Headers {$reqHeaders}", E_USER_ERROR);
         }
     }
 
