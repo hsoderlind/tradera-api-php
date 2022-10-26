@@ -23,9 +23,7 @@ class GetRequestResults
     public function dispatch(TraderaRestrictedService $client): stdClass
     {
         $getRequestResultParams = new stdClass();
-        $requestIdObj = new stdClass();
-        $requestIdObj->int = array($this->requestId);
-        $getRequestResultParams->requestId = $requestIdObj;
+        $getRequestResultParams->requestIds->int = array($this->requestId);
 
         return $client->GetRequestResults($getRequestResultParams);
     }
